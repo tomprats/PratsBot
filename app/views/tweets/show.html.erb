@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <h3>Last Tweet</h3>
+    <% if @tweet.nil? %>
+      <span>PratsBot has yet to tweet!<span>
+    <% else %>
+      <span><%= "#{@tweet.id}: #{@tweet.text}" %><span>
+    <% end %>
+  </div>
+  <%= link_to "Tweet", tweet_path, :method => :put %>
+  <%= link_to "Sync", sync_path, :method => :put %>
+</div>
