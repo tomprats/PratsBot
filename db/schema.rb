@@ -13,11 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140103032322) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "tweets", force: true do |t|
-    t.integer  "tweet_id"
+    t.integer  "tweet_id",   limit: 8
     t.string   "username"
     t.text     "text"
-    t.boolean  "tweeted",    default: false
+    t.boolean  "tweeted",              default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
